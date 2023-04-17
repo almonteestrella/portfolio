@@ -8,7 +8,7 @@ import Button from '@/components/Button';
 
 const Navbar = () => {
     return (
-        <Wrapper>
+        <NavContainer>
             <div className='div1'>
                 <div className='div2'>
                     <Link href={'/'}>
@@ -37,19 +37,21 @@ const Navbar = () => {
 
                 <Button text={'contact me'} path={'#contact'} />
             </div>
-        </Wrapper>
+        </NavContainer>
     );
 };
 
-const Wrapper = styled.nav`
+const NavContainer = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
 
     .div1 {
+        height: 70px;
         width: 90vw;
         margin: 0 auto;
         max-width: var(--max-width);
+        margin-bottom: 3rem;
     }
 
     .div2 {

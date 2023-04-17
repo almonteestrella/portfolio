@@ -37,3 +37,15 @@ a {
 body {
     background: var(--bg-color);
 }
+
+p {
+    font-size: 16px;
+    line-height: 30px;
+    color: #9d9d9d;
+}
+
+.section-center {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
