@@ -12,7 +12,7 @@
     --primary-color: #00b0ff;
     --body-bg-color: #f3f4f6;
     --max-width: 1170px;
-    --spacing: 0.1rem;
+    --spacing: 1px;
     --radius: 0.25rem;
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);

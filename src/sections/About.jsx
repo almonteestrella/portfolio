@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Info from './Info';
+import Info from '@/components/Info';
 
 const About = () => {
     return (
@@ -39,6 +39,27 @@ const About = () => {
                         />
                     </div>
                 </div>
+                <article className='process'>
+                    <div className='process-title'>
+                        <h2>let's have a lot to my working process</h2>
+                        <p>
+                            I am committed to helping you develop your projects
+                            from the discovery, strategy to the design process.
+                            Suggestions and insight are welcome to improve our
+                            works.
+                        </p>
+                    </div>
+
+                    <div className='process-info'>
+                        <Info
+                            number={1}
+                            title={'discovery'}
+                            color={'#D3FE57'}
+                        />
+                        <Info number={2} title={'strategy'} color={'#58F9BF'} />
+                        <Info number={3} title={'design'} color={'#A78BFF'} />
+                    </div>
+                </article>
             </main>
         </AboutContainer>
     );
@@ -46,7 +67,7 @@ const About = () => {
 
 const AboutContainer = styled.div`
     background: var(--white);
-    margin-bottom: 3rem;
+
     padding-top: 3rem;
 
     main {
@@ -72,31 +93,31 @@ const AboutContainer = styled.div`
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 5rem;
+        position: relative;
+        margin-bottom: 3rem;
     }
 
     .about-photo {
-        object-fit: contain;
+        object-fit: cover;
         width: 100%;
         height: auto;
-        position: relative;
     }
 
     .about-img-container {
         background: #f3f4f6;
         border-radius: 10px;
-        position: relative;
+        /* position: relative; */
     }
 
-    .about-img-container::before {
-        content: '';
-        position: absolute;
-        background: var(--primary-color);
-        width: 100%;
-        height: 100%;
-        top: 2rem;
-        left: -2rem;
+    .process-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 
-        border-radius: 10px;
+    .process-title,
+    .process-title h2 {
+        margin-bottom: 1.5rem;
     }
 `;
 export default About;
