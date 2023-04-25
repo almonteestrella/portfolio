@@ -101,12 +101,24 @@ const AboutContainer = styled.div`
         object-fit: cover;
         width: 100%;
         height: auto;
+        position: relative;
     }
 
     .about-img-container {
         background: #f3f4f6;
         border-radius: 10px;
-        /* position: relative; */
+        position: relative;
+    }
+
+    .about-img-container::after {
+        content: '';
+        position: absolute;
+        border: 3px solid var(--primary-color);
+        width: 100%;
+        height: 100%;
+        top: 2rem;
+        right: 2rem;
+        border-radius: var(--radius);
     }
 
     .process-info {
