@@ -4,7 +4,15 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Project = ({ url, details, title, image, imageInfo, icon, color }) => {
+const Project = ({
+    details,
+    title,
+    image,
+    imageInfo,
+    icon,
+    color,
+    caseStudy,
+}) => {
     return (
         <ProjectContainer color={color}>
             <article>
@@ -21,28 +29,11 @@ const Project = ({ url, details, title, image, imageInfo, icon, color }) => {
                 <div className='project-info'>
                     <h2>{title}</h2>
                     <div className='project-links'>
-                        <Link href={url} target='_blank' className='link'>
-                            live preview <span>{icon}</span>
-                        </Link>
-                        <button className='link'>
+                        <Link href={caseStudy} target='_blank' className='link'>
                             case study <span>{icon}</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                {/* <footer>
-                    <Image
-                        src={'/next.svg'}
-                        className='tech-img'
-                        width={0}
-                        height={0}
-                    />
-                    <Image
-                        src={'/tailwind.svg'}
-                        className='tech-img'
-                        width={0}
-                        height={0}
-                    />
-                </footer> */}
             </article>
         </ProjectContainer>
     );
@@ -77,11 +68,9 @@ const ProjectContainer = styled.div`
     }
 
     .link {
-        display: flex;
-        padding: 0.5rem 0.8rem;
-        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        display: inline-block;
         align-items: center;
-
         background: none;
         border: none;
         outline: 2px solid var(--white);

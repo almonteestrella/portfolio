@@ -15,11 +15,11 @@ const Projects = () => {
                         <Project
                             image={'/jobit.svg'}
                             icon={<HiArrowNarrowRight />}
-                            url={'https://jobit-dd.vercel.app/'}
                             imageInfo={'job search'}
                             title={'jobit application'}
                             details={'front end application'}
                             color={'#0BAB7C'}
+                            caseStudy={'/jobit'}
                         />
                     </article>
                     <article>
@@ -31,6 +31,7 @@ const Projects = () => {
                             title={'morent car rental'}
                             details={'MERN application'}
                             color={'#3563E9'}
+                            caseStudy={'/morent'}
                         />
                     </article>
                 </div>
@@ -43,7 +44,7 @@ const ProjectsContainer = styled.div`
     background: var(--white);
 
     main {
-        width: 80%;
+        width: 80vw;
         margin: 0 auto;
     }
 
