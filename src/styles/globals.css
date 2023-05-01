@@ -11,6 +11,10 @@
 
 /* fonts are pending */
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #00b0ff;
     --primary-20: #33c0ff;

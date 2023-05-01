@@ -5,12 +5,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { navLinks } from '../utils';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { AppContext } from '@/context/context';
 
 const Sidebar = () => {
+    const { isSidebarOpen, closeSidebar } = useContext(AppContext);
     return (
         <Wrapper>
-            <aside>
+            <aside
+                className={isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}
+            >
                 <div className='sidebar-header'>
                     <Link href={'/'}>
                         <Image
@@ -21,7 +25,7 @@ const Sidebar = () => {
                         />
                         <span>portfolio</span>
                     </Link>
-                    <button className='close-btn'>
+                    <button className='close-btn' onClick={closeSidebar}>
                         <FaTimes />
                     </button>
                 </div>
@@ -30,7 +34,9 @@ const Sidebar = () => {
                     {navLinks.map(({ id, path, text }) => {
                         return (
                             <li key={id}>
-                                <Link href={path}>{text}</Link>
+                                <Link href={path} onClick={closeSidebar}>
+                                    {text}
+                                </Link>
                             </li>
                         );
                     })}
@@ -45,12 +51,13 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 1rem 3rem;
 
         .close-btn {
             background: none;
             border: none;
             transition: var(--transition);
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--clr-red-dark);
             cursor: pointer;
             &:hover {
@@ -89,6 +96,12 @@ const Wrapper = styled.div`
     .show-sidebar {
         transform: translate(0);
         z-index: 1;
+    }
+
+    @media (min-width: 992px) {
+        .sidebar {
+            display: none;
+        }
     }
 `;
 

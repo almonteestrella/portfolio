@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Skills = () => {
     return (
         <SkillContainer>
-            <main>
+            <main id='technologies'>
                 <div className='title'>
                     <h2>technologies I implement</h2>
                 </div>

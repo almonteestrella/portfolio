@@ -25,7 +25,7 @@ const Testimonials = () => {
 
     return (
         <TestimonialContainer>
-            <main>
+            <main id='testimonials'>
                 <div className='title'>
                     <h2>testimonials</h2>
                 </div>

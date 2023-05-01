@@ -6,7 +6,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi';
 const Projects = () => {
     return (
         <ProjectsContainer>
-            <main>
+            <main id='projects'>
                 <div className='title'>
                     <h2>featured projects</h2>
                 </div>
@@ -22,7 +22,7 @@ const Projects = () => {
                             caseStudy={'/jobit'}
                         />
                     </article>
-                    <article>
+                    {/* <article>
                         <Project
                             image={'/morent.svg'}
                             icon={<HiArrowNarrowRight />}
@@ -33,7 +33,7 @@ const Projects = () => {
                             color={'#3563E9'}
                             caseStudy={'/morent'}
                         />
-                    </article>
+                    </article> */}
                 </div>
             </main>
         </ProjectsContainer>

@@ -1,79 +1,108 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
-import { FaBars } from 'react-icons/fa';
+import { GiHamburgerMenu } from 'react-icons/gi';
+
 import { navLinks } from '@/utils';
 import Button from '@/components/Button';
 
+import { AppContext } from '@/context/context';
+
 const Navbar = () => {
+    const { openSidebar } = useContext(AppContext);
+
+    const [navbarVisible, setNavbarVisible] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            window.pageYOffset > 100
+                ? setNavbarVisible(true)
+                : setNavbarVisible(false);
+        });
+    }, []);
+
     return (
         <NavContainer>
-            <div className='div1'>
-                <div className='div2'>
-                    <Link href={'/'}>
-                        <Image
-                            src={'/brand.svg'}
-                            width={50}
-                            height={50}
-                            alt='logo'
-                        />
-                        <span>portfolio</span>
-                    </Link>
-                    <button className='toggle-btn'>
-                        <FaBars />
-                    </button>
+            <nav>
+                <div className={`div1 ${navbarVisible ? 'blur-nav' : ''}`}>
+                    <div className='div2'>
+                        <Link href={'/'}>
+                            <Image
+                                src={'/brand.svg'}
+                                width={50}
+                                height={50}
+                                alt='logo'
+                            />
+                            <span>portfolio</span>
+                        </Link>
+
+                        <button className='toggle-btn'>
+                            <GiHamburgerMenu onClick={openSidebar} />
+                        </button>
+                    </div>
+
+                    <ul className='nav-links'>
+                        {navLinks.map(({ id, path, text }) => {
+                            return (
+                                <li key={id}>
+                                    <Link href={path}>{text}</Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+
+                    <Button
+                        text={'contact me'}
+                        path={'#contact'}
+                        className={'contact-btn'}
+                    />
                 </div>
-
-                <ul className='nav-links'>
-                    {navLinks.map(({ id, path, text }) => {
-                        return (
-                            <li key={id}>
-                                <Link href={path}>{text}</Link>
-                            </li>
-                        );
-                    })}
-                </ul>
-
-                <Button text={'contact me'} path={'#contact'} />
-            </div>
+            </nav>
         </NavContainer>
     );
 };
 
 const NavContainer = styled.nav`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .div1 {
-        height: 70px;
-        width: 90vw;
-        margin: 0 auto;
-        max-width: var(--max-width);
+    nav {
+        min-height: 60px;
         margin-bottom: 3rem;
+        width: 100vw;
     }
-
+    .div1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        padding: 0 6rem;
+    }
     .div2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .toggle-btn {
-        background: none;
-        border: none;
-        svg {
-            font-size: 2rem;
-        }
-
-        cursor: pointer;
-        color: var(--primary-color);
+        width: 100vw;
     }
 
     .nav-links,
     .contact-btn {
         display: none;
+    }
+
+    .nav-responsive {
+        width: min(75vw, 400px);
+        visibility: visible;
+        opacity: 1;
+    }
+    .toggle-btn {
+        background: none;
+        border: none;
+        transition: var(--transition);
+        svg {
+            font-size: 3rem;
+        }
+
+        cursor: pointer;
+        color: var(--primary-color);
     }
 
     @media (min-width: 992px) {
@@ -85,6 +114,11 @@ const NavContainer = styled.nav`
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 8rem;
+        }
+
+        .div2 {
+            width: 0vw;
         }
 
         .nav-links {
@@ -120,6 +154,19 @@ const NavContainer = styled.nav`
 
         .contact-btn {
             display: inline;
+        }
+
+        .blur-nav {
+            height: 80px;
+            position: fixed;
+            top: 0;
+            transition: var(--transition);
+            z-index: 100;
+            background-color: var(--white);
+            opacity: 0.9;
+            box-shadow: var(--dark-shadow);
+            backdrop-filter: blur(10px);
+            width: 100%;
         }
     }
 `;
