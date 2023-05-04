@@ -35,6 +35,7 @@ const Skills = () => {
 
 const SkillContainer = styled.div`
     background: var(--white);
+    padding-bottom: 3rem;
 
     main {
         width: 80vw;
@@ -42,17 +43,13 @@ const SkillContainer = styled.div`
     }
 
     .title {
+        text-align: center;
         position: relative;
         margin-bottom: 3rem;
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 20px;
-            width: 300px;
-            height: 2px;
-            left: 350px;
-            background-color: var(--primary-color);
+
+        & h2 {
+            text-transform: capitalize;
+            letter-spacing: var(--spacing);
         }
     }
 
@@ -60,6 +57,22 @@ const SkillContainer = styled.div`
         display: grid;
         gap: 2rem;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    @media (min-width: 992px) {
+        .title {
+            text-align: left;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                width: 300px;
+                height: 2px;
+                left: 350px;
+                background-color: var(--primary-color);
+            }
+        }
     }
 `;
 

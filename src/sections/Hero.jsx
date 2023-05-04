@@ -3,6 +3,10 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Button from '@/components/Button';
 
+import { socialLinks } from '@/utils';
+import Link from 'next/link';
+Link;
+
 const Hero = () => {
     return (
         <Wrapper>
@@ -14,15 +18,26 @@ const Hero = () => {
                             professional web developer
                         </h1>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Repellat corrupti non doloribus esse inventore
-                            consequatur aspernatur accusamus quasi aperiam,
-                            blanditiis excepturi fugiat provident sed
-                            praesentium totam at dolorum perspiciatis
-                            voluptatem.
+                            Full stack developer, creating client and server web
+                            applications, using varius technologies.
                         </p>
 
-                        <Button text={'contact me'} path={'#contact'} />
+                        <div className='flex-box'>
+                            <Button text={'contact me'} path={'#contact'} />
+                            <div className='icons-container'>
+                                {socialLinks.map(({ id, icon, link }) => (
+                                    <li key={id} className='li-item'>
+                                        <Link
+                                            href={link}
+                                            className='link-item'
+                                            target='_blank'
+                                        >
+                                            {icon}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     <Image
@@ -50,20 +65,62 @@ const Wrapper = styled.div`
         min-height: calc(100vh - 119px);
     }
 
+    .flex-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .icons-container {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-left: 1.5rem;
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 10px;
+            width: 100px;
+            height: 2px;
+            left: 230px;
+            background-color: var(--text-color);
+        }
+
+        & .li-item {
+            list-style-type: none;
+            margin: 0 1rem;
+        }
+
+        .link-item {
+            transition: var(--transition);
+            font-size: 1.2rem;
+            color: var(--text-color);
+            &:hover {
+                color: #ffbe62;
+            }
+        }
+
+        & .icons-container {
+            margin-left: 1.6rem;
+        }
+    }
+
     .hero-info {
         width: 500px;
+        text-align: center;
         & h4 {
             text-transform: uppercase;
             color: var(--primary-color);
         }
+        & p {
+            letter-spacing: var(--spacing);
+            line-height: 25px;
+            margin-bottom: 2rem;
+        }
     }
 
     .hero-img {
-        object-fit: cover;
-        border-radius: 20px;
-        width: 100%;
-
-        height: auto;
+        display: none;
     }
 
     .hero-title {
@@ -72,6 +129,37 @@ const Wrapper = styled.div`
         line-height: 75px;
         text-transform: capitalize;
         margin-bottom: 36px;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 135px;
+            width: 500px;
+            height: 16px;
+            background: #ffbe62;
+            z-index: -1;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .icons-container {
+            display: none;
+        }
+
+        .hero-img {
+            display: block;
+            object-fit: cover;
+            border-radius: 20px;
+            width: 100%;
+
+            height: auto;
+        }
+
+        .hero-info {
+            text-align: left;
+        }
     }
 `;
 

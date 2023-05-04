@@ -1,13 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
-
 import { navLinks } from '@/utils';
-import Button from '@/components/Button';
-
 import { AppContext } from '@/context/context';
+import Logo from '@/components/Logo';
 
 const Navbar = () => {
     const { openSidebar } = useContext(AppContext);
@@ -27,15 +24,7 @@ const Navbar = () => {
             <nav>
                 <div className={`div1 ${navbarVisible ? 'blur-nav' : ''}`}>
                     <div className='div2'>
-                        <Link href={'/'}>
-                            <Image
-                                src={'/brand.svg'}
-                                width={50}
-                                height={50}
-                                alt='logo'
-                            />
-                            <span>portfolio</span>
-                        </Link>
+                        <Logo />
 
                         <button className='toggle-btn'>
                             <GiHamburgerMenu onClick={openSidebar} />
@@ -51,12 +40,6 @@ const Navbar = () => {
                             );
                         })}
                     </ul>
-
-                    <Button
-                        text={'contact me'}
-                        path={'#contact'}
-                        className={'contact-btn'}
-                    />
                 </div>
             </nav>
         </NavContainer>
@@ -74,8 +57,9 @@ const NavContainer = styled.nav`
         justify-content: center;
         align-items: center;
         height: 70px;
-        padding: 0 6rem;
+        padding: 0 4rem;
     }
+
     .div2 {
         display: flex;
         justify-content: space-between;
@@ -83,8 +67,7 @@ const NavContainer = styled.nav`
         width: 100vw;
     }
 
-    .nav-links,
-    .contact-btn {
+    .nav-links {
         display: none;
     }
 
@@ -125,8 +108,7 @@ const NavContainer = styled.nav`
             display: flex;
             gap: 2rem;
 
-            li,
-            .contact-btn {
+            li {
                 margin: 0 0.5rem;
 
                 a {

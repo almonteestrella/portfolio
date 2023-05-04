@@ -17,12 +17,11 @@ const Projects = () => {
                             icon={<HiArrowNarrowRight />}
                             imageInfo={'job search'}
                             title={'jobit application'}
-                            details={'front end application'}
                             color={'#0BAB7C'}
                             caseStudy={'/jobit'}
                         />
                     </article>
-                    {/* <article>
+                    <article>
                         <Project
                             image={'/morent.svg'}
                             icon={<HiArrowNarrowRight />}
@@ -33,7 +32,7 @@ const Projects = () => {
                             color={'#3563E9'}
                             caseStudy={'/morent'}
                         />
-                    </article> */}
+                    </article>
                 </div>
             </main>
         </ProjectsContainer>
@@ -54,11 +53,33 @@ const ProjectsContainer = styled.div`
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
 
+    .title {
+        text-align: center;
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
     .title h2 {
         text-transform: capitalize;
         letter-spacing: var(--spacing);
-        text-align: center;
+
         margin-bottom: 2rem;
+    }
+
+    @media (min-width: 992px) {
+        .title {
+            text-align: left;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                width: 300px;
+                height: 2px;
+                left: 250px;
+                background-color: var(--primary-color);
+            }
+        }
     }
 `;
 

@@ -4,15 +4,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Project = ({
-    details,
-    title,
-    image,
-    imageInfo,
-    icon,
-    color,
-    caseStudy,
-}) => {
+const Project = ({ title, image, imageInfo, icon, color, caseStudy }) => {
     return (
         <ProjectContainer color={color}>
             <article>
@@ -24,7 +16,6 @@ const Project = ({
                         height={0}
                         className='project-img'
                     />
-                    <small>{details}</small>
                 </div>
                 <div className='project-info'>
                     <h2>{title}</h2>
@@ -43,11 +34,26 @@ const ProjectContainer = styled.div`
     padding: 1.5rem;
     background: ${(props) => props.color};
     border-radius: 10px;
+    transition: var(--transition);
+    &:hover {
+        box-shadow: var(--dark-shadow);
+        transform: scale(1.02);
+    }
+
     .project-img {
         width: 100%;
         height: auto;
         object-fit: contain;
         border-radius: var(--radius);
+    }
+
+    .project-info {
+        transition: var(--transition);
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     small,
@@ -78,7 +84,7 @@ const ProjectContainer = styled.div`
         border-radius: var(--radius);
         color: var(--white);
         letter-spacing: var(--spacing);
-        text-transform: capitalize;
+        text-transform: uppercase;
         cursor: pointer;
     }
 

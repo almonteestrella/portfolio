@@ -15,10 +15,11 @@ const jobit = () => {
                             new job opportunity?
                         </h4>
                         <p>
-                            as humans, we all, from time to time, feel the needs
+                            As humans, we all, from time to time, feel the needs
                             to look for a new or career changed; which is why we
                             decided to create this amazing app:
                         </p>
+
                         <h1 className='title'>jobit</h1>
                         <h1 className='title-desc'>
                             unique job search app experience
@@ -352,9 +353,18 @@ const Container = styled.div`
 
     header {
         margin-bottom: 2rem;
+        text-align: center;
     }
     header .section {
         min-height: 100vh;
+        & h4 {
+            max-width: var(--fixed-width);
+            margin-top: 1rem;
+        }
+
+        & p {
+            max-width: 400px;
+        }
     }
 
     .link {
@@ -386,7 +396,7 @@ const Container = styled.div`
     .process-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 5rem;
+        gap: 3rem;
         margin-bottom: 3rem;
 
         & h3 {
@@ -461,21 +471,21 @@ const Container = styled.div`
         text-transform: capitalize;
         font-weight: 800;
 
-        font-size: 60px;
-        width: 800px;
+        font-size: 30px;
+        width: 400px;
         margin-bottom: 3rem;
         font-family: var(--cs-font-heading);
     }
 
     .mision {
         min-height: 30vh;
+        margin-bottom: 3rem;
     }
 
     .mision-content {
-        display: flex;
-        justify-content: space-between;
         & ul {
             list-style-type: square;
+            margin-bottom: 2rem;
             & li {
                 letter-spacing: var(--spacing);
                 text-transform: capitalize;
@@ -494,7 +504,7 @@ const Container = styled.div`
 
     .mision-info {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+
         gap: 2rem;
     }
 
@@ -520,9 +530,7 @@ const Container = styled.div`
 
     .imp-grid {
         display: grid;
-        /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
-        grid-template-columns: 300px 1fr;
-        gap: 4rem;
+        gap: 1rem;
     }
 
     .implementation {
@@ -558,11 +566,62 @@ const Container = styled.div`
     }
 
     .conclusion p {
-        max-width: 800px;
+        max-width: 350px;
         letter-spacing: var(--spacing);
 
         line-height: var(--line-height);
         color: var(--text-color);
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width: 992px) {
+        header {
+            text-align: left;
+            & .section {
+                & h4 {
+                    max-width: 100%;
+                }
+                & p {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .title-desc {
+            font-size: 60px;
+            width: 100%;
+        }
+
+        .mision-info {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .mision-content {
+            display: flex;
+            justify-content: space-between;
+            & ul {
+                margin-bottom: 0;
+            }
+        }
+
+        .mision {
+            margin-bottom: 0;
+        }
+
+        .process-grid {
+            gap: 5rem;
+        }
+
+        .imp-grid {
+            display: grid;
+
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+        }
+
+        .conclusion p {
+            max-width: 800px;
+        }
     }
 `;
 

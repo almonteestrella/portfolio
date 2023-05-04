@@ -2,14 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import Info from '@/components/Info';
+import Link from 'next/link';
 
 const About = () => {
     return (
         <AboutContainer>
             <main id='about'>
                 <div className='title'>
-                    <h2>see what I can do for you easily</h2>
+                    <h2>let's have a lot to my working process</h2>
+                    <p>
+                        I am committed to develop web applications, writing
+                        clean code, follow design pattern, sstrategy to the
+                        design process, keep learning and improving the code.
+                    </p>
                 </div>
+
+                <Link
+                    href='http://localhost:3000/Juan Almonte Resume.pdf'
+                    color='transparent'
+                    target='_blank'
+                    download
+                    className='download'
+                >
+                    download my resume
+                </Link>
 
                 <div className='grid-container'>
                     <div className='about-img-container'>
@@ -24,42 +40,32 @@ const About = () => {
                     <div className='about-info'>
                         <Info
                             number={1}
-                            title={'application design'}
+                            title={'application design and logic'}
                             color={'#58f9bf'}
+                            description={
+                                'understand the project requirements and logic for its operation.'
+                            }
                         />
                         <Info
                             number={2}
-                            title={'UI/UX design'}
+                            title={
+                                'UI/UX design, frontend and backend implementacion'
+                            }
                             color={'#D3FE57'}
+                            description={
+                                'creating user interfaces that matches the most updates front end trending.'
+                            }
                         />
                         <Info
                             number={3}
-                            title={'interactive designs'}
+                            title={'interactive design and functionality'}
                             color={'#A78BFF'}
+                            description={
+                                'acomplishing what the web applications are meant to do'
+                            }
                         />
                     </div>
                 </div>
-                <article className='process'>
-                    <div className='process-title'>
-                        <h2>let's have a lot to my working process</h2>
-                        <p>
-                            I am committed to helping you develop your projects
-                            from the discovery, strategy to the design process.
-                            Suggestions and insight are welcome to improve our
-                            works.
-                        </p>
-                    </div>
-
-                    <div className='process-info'>
-                        <Info
-                            number={1}
-                            title={'discovery'}
-                            color={'#D3FE57'}
-                        />
-                        <Info number={2} title={'strategy'} color={'#58F9BF'} />
-                        <Info number={3} title={'design'} color={'#A78BFF'} />
-                    </div>
-                </article>
             </main>
         </AboutContainer>
     );
@@ -67,6 +73,7 @@ const About = () => {
 
 const AboutContainer = styled.div`
     background: var(--white);
+    padding-bottom: 5rem;
 
     padding-top: 3rem;
 
@@ -77,24 +84,47 @@ const AboutContainer = styled.div`
     .title {
         position: relative;
         margin-bottom: 3rem;
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 20px;
-            width: 300px;
-            height: 2px;
-            left: 400px;
-            background-color: var(--primary-color);
+        text-align: center;
+
+        & h2 {
+            margin-bottom: 1.5rem;
+            text-transform: capitalize;
+        }
+
+        & p {
+            max-width: var(--fixed-width);
+            letter-spacing: var(--spacing);
+        }
+    }
+
+    .download {
+        text-transform: capitalize;
+        background: var(--primary-color);
+        padding: 0.5rem 0.8rem;
+        display: inline-block;
+        font-weight: 400;
+        transition: var(--transition);
+        font-size: 0.875rem;
+        cursor: pointer;
+        box-shadow: var(--light-shadow);
+        border-radius: var(--radius);
+        border-color: transparent;
+        letter-spacing: var(--spacing);
+        color: var(--white);
+        margin-bottom: 3rem;
+
+        &:hover {
+            border: var(--primary-color) 2px solid;
+            background: var(--white);
+            color: var(--text-color);
         }
     }
 
     .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 5rem;
+        gap: 2rem;
         position: relative;
-        margin-bottom: 3rem;
     }
 
     .about-photo {
@@ -108,17 +138,7 @@ const AboutContainer = styled.div`
         background: #f3f4f6;
         border-radius: 10px;
         position: relative;
-    }
-
-    .about-img-container::after {
-        content: '';
-        position: absolute;
-        border: 3px solid var(--primary-color);
-        width: 100%;
-        height: 100%;
-        top: 2rem;
-        right: 2rem;
-        border-radius: var(--radius);
+        height: 200px;
     }
 
     .process-info {
@@ -130,6 +150,41 @@ const AboutContainer = styled.div`
     .process-title,
     .process-title h2 {
         margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+        .about-img-container::after {
+            content: '';
+            position: absolute;
+            border: 3px solid var(--primary-color);
+            width: 100%;
+            height: 100%;
+            top: 2rem;
+            right: 2rem;
+            border-radius: var(--radius);
+        }
+
+        .about-img-container {
+            height: auto;
+        }
+
+        .grid-container {
+            gap: 5rem;
+        }
+
+        .title {
+            text-align: left;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                width: 300px;
+                height: 2px;
+                left: 500px;
+                background-color: var(--primary-color);
+            }
+        }
     }
 `;
 export default About;

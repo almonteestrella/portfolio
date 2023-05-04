@@ -12,7 +12,7 @@
 /* fonts are pending */
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 
 :root {

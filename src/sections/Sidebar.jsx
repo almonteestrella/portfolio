@@ -7,6 +7,7 @@ import { navLinks } from '../utils';
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { AppContext } from '@/context/context';
+import Logo from '@/components/Logo';
 
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useContext(AppContext);
@@ -16,26 +17,18 @@ const Sidebar = () => {
                 className={isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}
             >
                 <div className='sidebar-header'>
-                    <Link href={'/'}>
-                        <Image
-                            src={'/brand.svg'}
-                            width={50}
-                            height={50}
-                            alt='logo'
-                        />
-                        <span>portfolio</span>
-                    </Link>
+                    <Logo />
                     <button className='close-btn' onClick={closeSidebar}>
                         <FaTimes />
                     </button>
                 </div>
 
                 <ul className='links'>
-                    {navLinks.map(({ id, path, text }) => {
+                    {navLinks.map(({ id, path, text, icon }) => {
                         return (
                             <li key={id}>
                                 <Link href={path} onClick={closeSidebar}>
-                                    {text}
+                                    {icon} {text}
                                 </Link>
                             </li>
                         );
@@ -67,9 +60,12 @@ const Wrapper = styled.div`
     }
 
     .links a {
-        display: block;
-        font-size: 1rem;
+        display: flex;
+        align-items: center;
+
+        font-size: 1.25rem;
         text-transform: capitalize;
+        padding: 1rem 1.5rem;
         color: var(--text-color);
         padding: 1rem 1.5rem;
         transition: var(--transition);
@@ -79,6 +75,13 @@ const Wrapper = styled.div`
         padding-left: 2rem;
 
         background: var(--hoverLink);
+    }
+
+    .links li a svg {
+        font-size: 2rem;
+
+        margin-right: 1rem;
+        margin-top: 2px;
     }
 
     .sidebar {

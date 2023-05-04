@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import { FaQuoteRight } from 'react-icons/fa';
 import { teamMembers } from '@/utils';
@@ -88,15 +88,10 @@ const TestimonialContainer = styled.div`
         width: 80vw;
         margin: 0 auto;
 
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 20px;
-            width: 300px;
-            height: 2px;
-            left: 200px;
-            background-color: var(--primary-color);
+        & h2 {
+            text-transform: capitalize;
+            letter-spacing: var(--spacing);
+            text-align: center;
         }
     }
 
@@ -146,7 +141,7 @@ const TestimonialContainer = styled.div`
     }
 
     .quote {
-        max-width: 35em;
+        max-width: 25em;
         margin: 0 auto;
         margin-top: 2rem;
         line-height: 2;
@@ -200,6 +195,22 @@ const TestimonialContainer = styled.div`
             height: 2rem;
 
             font-size: 1.5rem;
+        }
+
+        .title {
+            & h2 {
+                text-align: left;
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                width: 300px;
+                height: 2px;
+                left: 200px;
+                background-color: var(--primary-color);
+            }
         }
     }
 `;
