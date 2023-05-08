@@ -11,6 +11,7 @@ import Logo from '@/components/Logo';
 
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useContext(AppContext);
+
     return (
         <Wrapper>
             <aside

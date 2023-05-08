@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const AppContext = createContext();
 
@@ -12,6 +12,7 @@ const AppProvider = ({ children }) => {
     const closeSidebar = () => {
         setIsSidebarOpen(false);
     };
+
     return (
         <AppContext.Provider
             value={{

@@ -6,6 +6,9 @@ import { navLinks } from '@/utils';
 import { AppContext } from '@/context/context';
 import Logo from '@/components/Logo';
 
+import { FaSun } from 'react-icons/fa';
+import { BsFillMoonFill } from 'react-icons/bs';
+
 const Navbar = () => {
     const { openSidebar } = useContext(AppContext);
 
@@ -39,6 +42,17 @@ const Navbar = () => {
                                 </li>
                             );
                         })}
+
+                        <div>
+                            <button className='toggleTheme'>
+                                {/* {' '}
+                                {theme === 'darkTheme' ? (
+                                    <BsFillMoonFill />
+                                ) : (
+                                    <FaSun />
+                                )} */}
+                            </button>
+                        </div>
                     </ul>
                 </div>
             </nav>
@@ -51,6 +65,7 @@ const NavContainer = styled.nav`
         min-height: 60px;
         margin-bottom: 3rem;
         width: 100vw;
+        background: ${(props) => props.theme.navBG};
     }
     .div1 {
         display: flex;
@@ -69,6 +84,18 @@ const NavContainer = styled.nav`
 
     .nav-links {
         display: none;
+    }
+
+    .toggleTheme {
+        background: none;
+        border: none;
+
+        svg {
+            font-size: 1.8rem;
+        }
+
+        cursor: pointer;
+        /* color: var(--primary-color); */
     }
 
     .nav-responsive {

@@ -10,7 +10,7 @@ Link;
 const Hero = () => {
     return (
         <Wrapper>
-            <main>
+            <main className='dark:#2222'>
                 <div className='hero-content'>
                     <div className='hero-info'>
                         <h4>hi, i am juan almonte</h4>

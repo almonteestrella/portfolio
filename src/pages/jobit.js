@@ -84,7 +84,14 @@ const jobit = () => {
 
                     <p>
                         this project was a requirement of the master class on
-                        the javascript mastery platform{' '}
+                        <span>
+                            <Link
+                                href={'https://www.jsmastery.pro/'}
+                                target='_blank'
+                            >
+                                the javascript mastery platform
+                            </Link>
+                        </span>
                     </p>
                     <div className='visual'>
                         <Image

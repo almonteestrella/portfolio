@@ -108,13 +108,13 @@ const AboutContainer = styled.div`
         cursor: pointer;
         box-shadow: var(--light-shadow);
         border-radius: var(--radius);
-        border-color: transparent;
         letter-spacing: var(--spacing);
         color: var(--white);
         margin-bottom: 3rem;
+        border-color: transparent;
+        border: var(--primary-color) 2px solid;
 
         &:hover {
-            border: var(--primary-color) 2px solid;
             background: var(--white);
             color: var(--text-color);
         }
