@@ -1,29 +1,22 @@
-import AppProvider, { AppContext } from '@/context/context';
+import { GlobalStyles, darkTheme, lightTheme } from '@/ThemeConfig';
+import Swith from '@/components/Swith';
+import AppProvider from '@/context/context';
 import '@/styles/globals.css';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-
-const lightTheme = {
-    color: '#222',
-    navBg: '#f3f4f6',
-    background: '#ffff',
-};
-const darkTheme = {
-    color: '#fff',
-    background: '#222',
-};
 
 export default function App({ Component, pageProps }) {
     const [theme, setTheme] = useState('light');
-    const isDarkTheme = theme === 'dark';
 
     const toggleTheme = () => {
-        setTheme(isDarkTheme ? 'light' : 'dark');
+        theme == 'light' ? setTheme('dark') : setTheme('light');
     };
 
     return (
         <>
-            <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+            <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
+                <GlobalStyles />
+                <button onClick={toggleTheme}>swith mode</button>
                 <AppProvider>
                     <Component {...pageProps} />
                 </AppProvider>
