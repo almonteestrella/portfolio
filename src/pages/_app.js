@@ -1,5 +1,5 @@
 import { GlobalStyles, darkTheme, lightTheme } from '@/ThemeConfig';
-import Swith from '@/components/Swith';
+
 import AppProvider from '@/context/context';
 import '@/styles/globals.css';
 import { useState } from 'react';
@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
         <>
             <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
                 <GlobalStyles />
-                <button onClick={toggleTheme}>swith mode</button>
+                {/* <button onClick={toggleTheme}>swith mode</button> */}
                 <AppProvider>
                     <Component {...pageProps} />
                 </AppProvider>

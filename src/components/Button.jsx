@@ -13,7 +13,7 @@ const Button = ({ text, path }) => {
 };
 
 const Wrapper = styled.button`
-    text-transform: uppercase;
+    text-transform: capitalize;
     background: var(--primary-color);
     padding: 0.8rem 1rem;
     display: inline-block;
@@ -24,6 +24,7 @@ const Wrapper = styled.button`
     box-shadow: var(--light-shadow);
     border-radius: 20px;
     border-color: transparent;
+    letter-spacing: var(--spacing);
 
     .text {
         letter-spacing: var(--spacing);
@@ -36,6 +37,10 @@ const Wrapper = styled.button`
     &:hover {
         border: var(--primary-color) 2px solid;
         background: var(--white);
+    }
+
+    @media (min-width: 992px) {
+        text-transform: uppercase;
     }
 `;
 

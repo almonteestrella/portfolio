@@ -10,7 +10,7 @@ Link;
 const Hero = () => {
     return (
         <Wrapper>
-            <main className='dark:#2222'>
+            <main>
                 <div className='hero-content'>
                     <div className='hero-info'>
                         <h4>hi, i am juan almonte</h4>
@@ -54,15 +54,16 @@ const Hero = () => {
 };
 
 const Wrapper = styled.div`
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 3rem;
+    main {
+        width: 80vw;
+        margin: 0 auto;
+    }
 
     .hero-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 5rem;
-        min-height: calc(100vh - 119px);
+        min-height: calc(80vh);
     }
 
     .flex-box {
@@ -88,7 +89,7 @@ const Wrapper = styled.div`
 
         & .li-item {
             list-style-type: none;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
         }
 
         .link-item {
@@ -106,11 +107,13 @@ const Wrapper = styled.div`
     }
 
     .hero-info {
-        width: 500px;
+        width: 300px;
         text-align: center;
         & h4 {
             text-transform: uppercase;
             color: var(--primary-color);
+            margin-bottom: 1rem;
+            margin-top: 3rem;
         }
         & p {
             letter-spacing: var(--spacing);
@@ -125,18 +128,18 @@ const Wrapper = styled.div`
 
     .hero-title {
         font-weight: 700;
-        font-size: 67px;
-        line-height: 75px;
+        font-size: 40px;
+        line-height: 50px;
         text-transform: capitalize;
-        margin-bottom: 36px;
+        margin-bottom: 3rem;
         position: relative;
 
         &::after {
             content: '';
             display: block;
             position: absolute;
-            top: 135px;
-            width: 500px;
+            top: 100px;
+            width: 300px;
             height: 16px;
             background: #ffbe62;
             z-index: -1;
@@ -159,6 +162,24 @@ const Wrapper = styled.div`
 
         .hero-info {
             text-align: left;
+            width: 500px;
+        }
+
+        .hero-title {
+            font-size: 67px;
+            line-height: 75px;
+            &::after {
+                top: 135px;
+                width: 500px;
+            }
+        }
+
+        .hero-content {
+            min-height: calc(100vh - 119px);
+        }
+
+        .li-item {
+            margin: 0 1rem;
         }
     }
 `;

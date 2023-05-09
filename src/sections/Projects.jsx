@@ -50,7 +50,7 @@ const ProjectsContainer = styled.div`
     .projects-container {
         display: grid;
         gap: 2rem;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
     .title {
@@ -79,6 +79,9 @@ const ProjectsContainer = styled.div`
                 left: 250px;
                 background-color: var(--primary-color);
             }
+        }
+        .projects-container {
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         }
     }
 `;

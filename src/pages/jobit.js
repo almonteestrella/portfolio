@@ -359,8 +359,8 @@ const Container = styled.div`
     }
 
     header {
-        margin-bottom: 2rem;
         text-align: center;
+        margin-bottom: 3rem;
     }
     header .section {
         min-height: 100vh;
@@ -479,7 +479,8 @@ const Container = styled.div`
         font-weight: 800;
 
         font-size: 30px;
-        width: 400px;
+        max-width: 400px;
+        text-align: center;
         margin-bottom: 3rem;
         font-family: var(--cs-font-heading);
     }
@@ -596,7 +597,8 @@ const Container = styled.div`
 
         .title-desc {
             font-size: 60px;
-            width: 100%;
+            max-width: 100%;
+            text-align: left;
         }
 
         .mision-info {

@@ -2,7 +2,6 @@
 
 import { FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
-import Image from 'next/image';
 import { navLinks } from '../utils';
 import styled from 'styled-components';
 import { useContext } from 'react';
@@ -25,11 +24,11 @@ const Sidebar = () => {
                 </div>
 
                 <ul className='links'>
-                    {navLinks.map(({ id, path, text, icon }) => {
+                    {navLinks.map(({ id, path, text }) => {
                         return (
                             <li key={id}>
                                 <Link href={path} onClick={closeSidebar}>
-                                    {icon} {text}
+                                    {text}
                                 </Link>
                             </li>
                         );
@@ -45,7 +44,7 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 3rem;
+        padding: 1rem;
 
         .close-btn {
             background: none;
