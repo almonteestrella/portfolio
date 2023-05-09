@@ -24,30 +24,39 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    /* color
-font-family */
+
     .email {
-        letter-spacing: var(--spacing);
-        writing-mode: vertical-lr;
-        padding: 10px;
+        display: none;
     }
 
-    .link {
-        transition: var(--transition);
-        color: var(--text-color);
-        &:hover {
-            color: var(--primary-color);
+    @media (min-width: 992px) {
+        .email {
+            display: block;
+            writing-mode: vertical-lr;
+            padding: 10px;
+        }
+
+        .link {
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            color: var(--text-color);
+            &:hover {
+                color: #ffbe62;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 90px;
+            margin: 0px auto;
+            background-color: var(--primary-color);
         }
     }
-
-    &::after {
-        content: '';
-        display: block;
-        width: 2px;
-        height: 90px;
-        margin: 0px auto;
-        background-color: var(--primary-color);
-    }
+    /* color
+font-family */
 `;
 
 export default Email;

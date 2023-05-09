@@ -1,9 +1,33 @@
 import { HiArrowNarrowRight } from 'react-icons/hi';
+import { SiAboutdotme } from 'react-icons/si';
+import { GrTechnology } from 'react-icons/gr';
+import { GrProjects } from 'react-icons/gr';
+import { FaUsers } from 'react-icons/fa';
+import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
 export const navLinks = [
-    { id: 1, text: 'about', path: '#about' },
-    { id: 2, text: 'technologies', path: '#technologies' },
-    { id: 3, text: 'projects', path: '#projects' },
+    { id: 1, text: 'about', path: '#about', icon: <SiAboutdotme /> },
+    {
+        id: 2,
+        text: 'technologies',
+        path: '#technologies',
+        icon: <GrTechnology />,
+    },
+    { id: 3, text: 'projects', path: '#projects', icon: <GrProjects /> },
+    { id: 4, text: 'testimonials', path: '#testimonials', icon: <FaUsers /> },
+];
+
+export const socialLinks = [
+    {
+        id: 1,
+        name: 'Github',
+        icon: <FiGithub />,
+        link: 'https://www.github.com',
+    },
+
+    { id: 2, name: 'LinkedIn', icon: <FiLinkedin />, link: '#' },
+    { id: 3, name: 'Instagram', icon: <FiInstagram />, link: '#' },
+    { id: 4, name: 'Twitter', icon: <FiTwitter />, link: '#' },
 ];
 
 export const projects = [

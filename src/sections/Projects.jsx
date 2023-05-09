@@ -6,7 +6,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi';
 const Projects = () => {
     return (
         <ProjectsContainer>
-            <main>
+            <main id='projects'>
                 <div className='title'>
                     <h2>featured projects</h2>
                 </div>
@@ -15,11 +15,10 @@ const Projects = () => {
                         <Project
                             image={'/jobit.svg'}
                             icon={<HiArrowNarrowRight />}
-                            url={'https://jobit-dd.vercel.app/'}
                             imageInfo={'job search'}
                             title={'jobit application'}
-                            details={'front end application'}
                             color={'#0BAB7C'}
+                            caseStudy={'/jobit'}
                         />
                     </article>
                     <article>
@@ -31,6 +30,7 @@ const Projects = () => {
                             title={'morent car rental'}
                             details={'MERN application'}
                             color={'#3563E9'}
+                            caseStudy={'/morent'}
                         />
                     </article>
                 </div>
@@ -43,21 +43,46 @@ const ProjectsContainer = styled.div`
     background: var(--white);
 
     main {
-        width: 80%;
+        width: 80vw;
         margin: 0 auto;
     }
 
     .projects-container {
         display: grid;
         gap: 2rem;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .title {
+        text-align: center;
+        position: relative;
+        margin-bottom: 3rem;
     }
 
     .title h2 {
         text-transform: capitalize;
         letter-spacing: var(--spacing);
-        text-align: center;
+
         margin-bottom: 2rem;
+    }
+
+    @media (min-width: 992px) {
+        .title {
+            text-align: left;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                width: 300px;
+                height: 2px;
+                left: 250px;
+                background-color: var(--primary-color);
+            }
+        }
+        .projects-container {
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        }
     }
 `;
 

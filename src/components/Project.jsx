@@ -4,7 +4,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Project = ({ url, details, title, image, imageInfo, icon, color }) => {
+const Project = ({ title, image, imageInfo, icon, color, caseStudy }) => {
     return (
         <ProjectContainer color={color}>
             <article>
@@ -16,33 +16,15 @@ const Project = ({ url, details, title, image, imageInfo, icon, color }) => {
                         height={0}
                         className='project-img'
                     />
-                    <small>{details}</small>
                 </div>
                 <div className='project-info'>
                     <h2>{title}</h2>
                     <div className='project-links'>
-                        <Link href={url} target='_blank' className='link'>
-                            live preview <span>{icon}</span>
-                        </Link>
-                        <button className='link'>
+                        <Link href={caseStudy} target='_blank' className='link'>
                             case study <span>{icon}</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                {/* <footer>
-                    <Image
-                        src={'/next.svg'}
-                        className='tech-img'
-                        width={0}
-                        height={0}
-                    />
-                    <Image
-                        src={'/tailwind.svg'}
-                        className='tech-img'
-                        width={0}
-                        height={0}
-                    />
-                </footer> */}
             </article>
         </ProjectContainer>
     );
@@ -52,11 +34,26 @@ const ProjectContainer = styled.div`
     padding: 1.5rem;
     background: ${(props) => props.color};
     border-radius: 10px;
+    transition: var(--transition);
+    &:hover {
+        box-shadow: var(--dark-shadow);
+        transform: scale(1.02);
+    }
+
     .project-img {
         width: 100%;
         height: auto;
         object-fit: contain;
         border-radius: var(--radius);
+    }
+
+    .project-info {
+        transition: var(--transition);
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     small,
@@ -77,11 +74,9 @@ const ProjectContainer = styled.div`
     }
 
     .link {
-        display: flex;
-        padding: 0.5rem 0.8rem;
-        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        display: inline-block;
         align-items: center;
-
         background: none;
         border: none;
         outline: 2px solid var(--white);
@@ -89,7 +84,7 @@ const ProjectContainer = styled.div`
         border-radius: var(--radius);
         color: var(--white);
         letter-spacing: var(--spacing);
-        text-transform: capitalize;
+        text-transform: uppercase;
         cursor: pointer;
     }
 

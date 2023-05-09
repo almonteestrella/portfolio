@@ -6,6 +6,8 @@ import Contact from '@/sections/Contact';
 import Hero from '@/sections/Hero';
 import Navbar from '@/sections/Navbar';
 import Projects from '@/sections/Projects';
+import Sidebar from '@/sections/Sidebar';
+import Skills from '@/sections/Skills';
 import Testimonials from '@/sections/Testimonials';
 import React from 'react';
 
@@ -15,10 +17,11 @@ const Index = () => {
             <Navbar />
             <Hero />
             <About />
+            <Skills />
             <Projects />
             <Testimonials />
             <Contact />
-
+            <Sidebar />
             <SocialIcons />
             <Email />
         </main>

@@ -31,7 +31,7 @@ const Contact = () => {
 
     return (
         <Container>
-            <main>
+            <main id='contact'>
                 <h1>contact me</h1>
 
                 <div className='content'>
@@ -115,7 +115,7 @@ const Container = styled.div`
 
     .form-control input,
     textarea {
-        width: 70%;
+        width: 100%;
         padding: 0.5rem;
         border-radius: 5px;
         border: 1px solid #9d9d9d;
@@ -145,19 +145,13 @@ const Container = styled.div`
 
     .bg-white {
         background: var(--white);
-        width: 70%;
+        width: 100%;
         border-radius: 10px;
         padding: 1.5rem 2rem;
     }
 
     .contact-img {
-        width: 50%;
-        height: auto;
-        object-fit: cover;
-        position: absolute;
-        top: 20%;
-        right: 0px;
-        border-radius: 10px;
+        display: none;
     }
 
     .content {
@@ -174,6 +168,7 @@ const Container = styled.div`
         color: white;
         transition: var(--transition);
         letter-spacing: var(--spacing);
+        width: 100%;
     }
 
     .contact-btn:hover {
@@ -181,6 +176,32 @@ const Container = styled.div`
         outline: 2px solid var(--primary-color);
         color: var(--text-color);
         letter-spacing: var(--spacing);
+    }
+
+    @media (min-width: 992px) {
+        .contact-img {
+            display: block;
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+            position: absolute;
+            top: 20%;
+            right: 0px;
+            border-radius: 10px;
+        }
+
+        .bg-white {
+            width: 70%;
+        }
+
+        .form-control input,
+        textarea {
+            width: 70%;
+        }
+
+        .contact-btn {
+            width: auto;
+        }
     }
 `;
 
