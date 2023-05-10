@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <NavContainer>
-            <nav>
+            <nav className=''>
                 <div className={`div1 ${navbarVisible ? 'blur-nav' : ''}`}>
                     <div className='div2'>
                         <Logo />
@@ -72,6 +72,20 @@ const NavContainer = styled.nav`
         display: none;
     }
 
+    .fixedSidebar {
+        height: 60px;
+        position: fixed;
+        top: 0;
+        backdrop-filter: blur(10px);
+        width: 100%;
+        z-index: 1;
+        background-color: var(--white);
+        opacity: 0.9;
+        box-shadow: var(--dark-shadow);
+
+        width: 100%;
+    }
+
     .toggleTheme {
         background: none;
         border: none;
@@ -81,7 +95,6 @@ const NavContainer = styled.nav`
         }
 
         cursor: pointer;
-        /* color: var(--primary-color); */
     }
 
     .nav-responsive {

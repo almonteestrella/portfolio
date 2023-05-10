@@ -15,7 +15,8 @@ const Hero = () => {
                     <div className='hero-info'>
                         <h4>hi, i am juan almonte</h4>
                         <h1 className='hero-title'>
-                            professional web developer
+                            professional <br />
+                            <span className='underline'>web developer</span>
                         </h1>
                         <p>
                             Full stack developer, creating client and server web
@@ -61,14 +62,25 @@ const Wrapper = styled.div`
 
     .hero-content {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
         gap: 5rem;
         min-height: calc(80vh);
+    }
+
+    .hero-img {
+        object-fit: cover;
+        border-radius: 20px;
+        width: 100%;
+
+        height: auto;
     }
 
     .flex-box {
         display: flex;
         align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     .icons-container {
@@ -76,16 +88,6 @@ const Wrapper = styled.div`
         justify-content: space-between;
         position: relative;
         margin-left: 1.5rem;
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 10px;
-            width: 100px;
-            height: 2px;
-            left: 230px;
-            background-color: var(--text-color);
-        }
 
         & .li-item {
             list-style-type: none;
@@ -107,7 +109,7 @@ const Wrapper = styled.div`
     }
 
     .hero-info {
-        width: 300px;
+        max-width: 600px;
         text-align: center;
         & h4 {
             text-transform: uppercase;
@@ -122,27 +124,20 @@ const Wrapper = styled.div`
         }
     }
 
-    .hero-img {
-        display: none;
-    }
-
     .hero-title {
         font-weight: 700;
-        font-size: 40px;
+        font-size: 45px;
         line-height: 50px;
         text-transform: capitalize;
         margin-bottom: 3rem;
-        position: relative;
 
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 100px;
-            width: 300px;
-            height: 16px;
-            background: #ffbe62;
-            z-index: -1;
+        & .underline {
+            background-image: linear-gradient(0deg, #3563e9, #ffbe62 0);
+            background-repeat: no-repeat;
+            background-size: 100% 25%;
+            background-position: left 70% top 90%;
+            transition: var(--transition);
+            border-radius: 10px;
         }
     }
 
@@ -151,13 +146,8 @@ const Wrapper = styled.div`
             display: none;
         }
 
-        .hero-img {
-            display: block;
-            object-fit: cover;
-            border-radius: 20px;
-            width: 100%;
-
-            height: auto;
+        .flex-box {
+            align-items: start;
         }
 
         .hero-info {
@@ -176,6 +166,7 @@ const Wrapper = styled.div`
 
         .hero-content {
             min-height: calc(100vh - 119px);
+            grid-template-columns: 1fr 1fr;
         }
 
         .li-item {

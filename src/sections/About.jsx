@@ -18,7 +18,7 @@ const About = () => {
                 </div>
 
                 <Link
-                    href='http://localhost:3000/Juan Almonte Resume.pdf'
+                    href='http://localhost:3000/juan-almonte-resume.pdf'
                     color='transparent'
                     target='_blank'
                     download

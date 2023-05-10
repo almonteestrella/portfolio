@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import { navLinks } from '../utils';
 import styled from 'styled-components';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '@/context/context';
 import Logo from '@/components/Logo';
 
