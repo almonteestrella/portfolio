@@ -47,15 +47,6 @@ const ProjectContainer = styled.div`
         border-radius: var(--radius);
     }
 
-    .project-info {
-        transition: var(--transition);
-        opacity: 0;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
     small,
     .project-info h2 {
         color: var(--white);
@@ -99,6 +90,17 @@ const ProjectContainer = styled.div`
         width: 40px;
         height: auto;
         margin-right: 10px;
+    }
+
+    @media (min-width: 992px) {
+        .project-info {
+            transition: var(--transition);
+            opacity: 0;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 `;
 

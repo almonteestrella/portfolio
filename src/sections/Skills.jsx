@@ -19,7 +19,7 @@ const Skills = () => {
                     <TechLogo image={'/next.svg'} name={'next'} />
                     <TechLogo image={'/node.svg'} name={'node'} />
                     <TechLogo image={'/react.svg'} name={'react'} />
-                    <TechLogo image={'/RTK.svg'} name={'RTK'} />
+                    <TechLogo image={'/rtk.svg'} name={'RTK'} />
                     <TechLogo image={'/html&css.svg'} name={'html & css'} />
                     <TechLogo image={'/figma.svg'} name={'figma'} />
                     <TechLogo

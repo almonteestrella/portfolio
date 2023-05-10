@@ -25,6 +25,7 @@ const Wrapper = styled.button`
     border-radius: 20px;
     border-color: transparent;
     letter-spacing: var(--spacing);
+    width: 200px;
 
     .text {
         letter-spacing: var(--spacing);
